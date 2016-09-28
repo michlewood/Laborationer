@@ -13,7 +13,7 @@ namespace VinylCollection
 
         VinylCollectionMain()
         {
-            vinylCollection = getCollection();
+            getCollection();
             Menu();
         }
 
@@ -168,7 +168,7 @@ namespace VinylCollection
             File.WriteAllLines(FindFileLocation(), toFile);
         }
 
-        private List<Vinyl> getCollection()
+        private void getCollection()
         {
             string[] fromFile;
 
@@ -186,8 +186,6 @@ namespace VinylCollection
             {
                 vinylCollection.Add(new Vinyl(fromFile[i], fromFile[i + 1], int.Parse(fromFile[i + 2])));
             }
-
-            return vinylCollection;
         }
 
         private string FindFileLocation()
