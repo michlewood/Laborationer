@@ -31,31 +31,6 @@ namespace BattleshipGame
             else return addSquareShip(xCoordinat, yCoordinat);
             
         }
-        
-        private bool addSquareShip(int xCoordinat, int yCoordinat)
-        {
-            if (yCoordinat < 9 && xCoordinat < 9)
-            {
-                if (BattleshipMain.PlayerOnesTurn)
-                {
-                    PlayerOneMapPositions[xCoordinat + 10 * yCoordinat] = 1;
-                    PlayerOneMapPositions[xCoordinat + 1 + 10 * yCoordinat] = 1;
-                    PlayerOneMapPositions[xCoordinat + 10 + 10 * yCoordinat] = 1;
-                    PlayerOneMapPositions[xCoordinat + 11 + 10 * yCoordinat] = 1;
-                    
-                }
-                else
-                {
-                    PlayerTwoMapPositions[xCoordinat + 10 * yCoordinat] = 1;
-                    PlayerTwoMapPositions[xCoordinat + 1 + 10 * yCoordinat] = 1;
-                    PlayerTwoMapPositions[xCoordinat + 10 + 10 * yCoordinat] = 1;
-                    PlayerTwoMapPositions[xCoordinat + 11 + 10 * yCoordinat] = 1;
-                    
-                }
-                return true;
-            }
-            else return false;
-        }
 
         internal bool HitShip(int xCoordinat, int yCoordinat)
         {
@@ -92,7 +67,7 @@ namespace BattleshipGame
                 Console.ForegroundColor = ConsoleColor.Gray;
                 return true;
             }
-            
+
             else
             {
                 Console.ForegroundColor = ConsoleColor.Red;
@@ -103,29 +78,113 @@ namespace BattleshipGame
 
         }
 
+        private bool addSquareShip(int xCoordinat, int yCoordinat)
+        {
+            if (yCoordinat < 9 && xCoordinat < 9)
+            {
+                if (BattleshipMain.PlayerOnesTurn)
+                {
+                    if (!(PlayerOneMapPositions[xCoordinat + 10 * yCoordinat] == 1 ||
+                    PlayerOneMapPositions[xCoordinat + 1 + 10 * yCoordinat] == 1 ||
+                    PlayerOneMapPositions[xCoordinat + 10 + 10 * yCoordinat] == 1 ||
+                    PlayerOneMapPositions[xCoordinat + 11 + 10 * yCoordinat] == 1))
+                    {
+                        PlayerOneMapPositions[xCoordinat + 10 * yCoordinat] = 1;
+                        PlayerOneMapPositions[xCoordinat + 1 + 10 * yCoordinat] = 1;
+                        PlayerOneMapPositions[xCoordinat + 10 + 10 * yCoordinat] = 1;
+                        PlayerOneMapPositions[xCoordinat + 11 + 10 * yCoordinat] = 1; 
+                    }
+
+                    else
+                    {
+                        Console.WriteLine("Overlaps with another ship!");
+                        return false;
+                    }
+
+                }
+                else
+                {
+                    if (!(PlayerTwoMapPositions[xCoordinat + 10 * yCoordinat] == 1 ||
+                    PlayerTwoMapPositions[xCoordinat + 1 + 10 * yCoordinat] == 1 ||
+                    PlayerTwoMapPositions[xCoordinat + 10 + 10 * yCoordinat] == 1 ||
+                    PlayerTwoMapPositions[xCoordinat + 11 + 10 * yCoordinat] == 1))
+                    {
+                        PlayerTwoMapPositions[xCoordinat + 10 * yCoordinat] = 1;
+                        PlayerTwoMapPositions[xCoordinat + 1 + 10 * yCoordinat] = 1;
+                        PlayerTwoMapPositions[xCoordinat + 10 + 10 * yCoordinat] = 1;
+                        PlayerTwoMapPositions[xCoordinat + 11 + 10 * yCoordinat] = 1; 
+                    }
+
+                    else
+                    {
+                        Console.WriteLine("Overlaps with another ship!");
+                        return false;
+                    }
+
+                }
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("incorrect coordinats!");
+                return false;
+            }
+        }
+
         private bool addLongShip(int xCoordinat, int yCoordinat)
         {
             if (xCoordinat < 6)
             {
                 if (BattleshipMain.PlayerOnesTurn)
                 {
-                    PlayerOneMapPositions[xCoordinat + 10 * yCoordinat] = 1;
-                    PlayerOneMapPositions[xCoordinat + 1 + 10 * yCoordinat] = 1;
-                    PlayerOneMapPositions[xCoordinat + 2 + 10 * yCoordinat] = 1;
-                    PlayerOneMapPositions[xCoordinat + 3 + 10 * yCoordinat] = 1;
-                    PlayerOneMapPositions[xCoordinat + 4 + 10 * yCoordinat] = 1;
+                    if (!(PlayerOneMapPositions[xCoordinat + 10 * yCoordinat] == 1 ||
+                    PlayerOneMapPositions[xCoordinat + 1 + 10 * yCoordinat] == 1 ||
+                    PlayerOneMapPositions[xCoordinat + 2 + 10 * yCoordinat] == 1 ||
+                    PlayerOneMapPositions[xCoordinat + 3 + 10 * yCoordinat] == 1 ||
+                    PlayerOneMapPositions[xCoordinat + 4 + 10 * yCoordinat] == 1))
+                    {
+                        PlayerOneMapPositions[xCoordinat + 10 * yCoordinat] = 1;
+                        PlayerOneMapPositions[xCoordinat + 1 + 10 * yCoordinat] = 1;
+                        PlayerOneMapPositions[xCoordinat + 2 + 10 * yCoordinat] = 1;
+                        PlayerOneMapPositions[xCoordinat + 3 + 10 * yCoordinat] = 1;
+                        PlayerOneMapPositions[xCoordinat + 4 + 10 * yCoordinat] = 1;
+                    }
+
+                    else
+                    {
+                        Console.WriteLine("Overlaps with another ship!");
+                        return false;
+                    }
                 }
                 else
                 {
-                    PlayerTwoMapPositions[xCoordinat + 10 * yCoordinat] = 1;
-                    PlayerTwoMapPositions[xCoordinat + 1 + 10 * yCoordinat] = 1;
-                    PlayerTwoMapPositions[xCoordinat + 2 + 10 * yCoordinat] = 1;
-                    PlayerTwoMapPositions[xCoordinat + 3 + 10 * yCoordinat] = 1;
-                    PlayerTwoMapPositions[xCoordinat + 4 + 10 * yCoordinat] = 1;
+                    if (!(PlayerTwoMapPositions[xCoordinat + 10 * yCoordinat] == 1 ||
+                    PlayerTwoMapPositions[xCoordinat + 1 + 10 * yCoordinat] == 1 ||
+                    PlayerTwoMapPositions[xCoordinat + 2 + 10 * yCoordinat] == 1 ||
+                    PlayerTwoMapPositions[xCoordinat + 3 + 10 * yCoordinat] == 1 ||
+                    PlayerTwoMapPositions[xCoordinat + 4 + 10 * yCoordinat] == 1))
+                    {
+                        PlayerTwoMapPositions[xCoordinat + 10 * yCoordinat] = 1;
+                        PlayerTwoMapPositions[xCoordinat + 1 + 10 * yCoordinat] = 1;
+                        PlayerTwoMapPositions[xCoordinat + 2 + 10 * yCoordinat] = 1;
+                        PlayerTwoMapPositions[xCoordinat + 3 + 10 * yCoordinat] = 1;
+                        PlayerTwoMapPositions[xCoordinat + 4 + 10 * yCoordinat] = 1;
+                    }
+
+                    else
+                    {
+                        Console.WriteLine("Overlaps with another ship!");
+                        return false;
+                    }
                 }
+
                 return true;
             }
-            else return false;
+            else
+            {
+                Console.WriteLine("incorrect coordinats!");
+                return false;
+            }
         }
 
         private bool addsmallShip(int xCoordinat, int yCoordinat)
@@ -147,7 +206,12 @@ namespace BattleshipGame
 
                 return true;
             }
-            else return false;
+
+            else
+            {
+                Console.WriteLine("incorrect coordinats!");
+                return false;
+            }
         }
 
     }

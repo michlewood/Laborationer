@@ -136,7 +136,7 @@ namespace BattleshipGame
                             Console.ReadLine();
                         }
 
-                        else Console.WriteLine("incorrect coordinats!");
+                        
                     }
                     else Console.WriteLine("\nIncorrect format!");
                     
