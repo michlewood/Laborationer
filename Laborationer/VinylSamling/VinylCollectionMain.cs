@@ -75,7 +75,7 @@ namespace VinylCollection
                 invalidChoice = int.TryParse(Console.ReadLine(), out indexToEdit);
             } while (!invalidChoice);
 
-            if (indexToEdit < vinylCollection.Count)
+            if (indexToEdit <= vinylCollection.Count)
             {
                 vinylCollection[indexToEdit - 1].Edit(); ;
                 UpdateFile();
@@ -170,8 +170,18 @@ namespace VinylCollection
 
         private List<Vinyl> getCollection()
         {
-            List<Vinyl> vinylCollection = new List<Vinyl>();
-            string[] fromFile = File.ReadAllLines(FindFileLocation());
+            string[] fromFile;
+
+            try
+            {
+                fromFile = File.ReadAllLines(FindFileLocation());
+            }
+            catch (FileNotFoundException)
+            {
+                File.WriteAllText(FindFileLocation(), "");
+                fromFile = File.ReadAllLines(FindFileLocation());
+            }
+            
             for (int i = 0; i < fromFile.Length; i += 3)
             {
                 vinylCollection.Add(new Vinyl(fromFile[i], fromFile[i + 1], int.Parse(fromFile[i + 2])));
