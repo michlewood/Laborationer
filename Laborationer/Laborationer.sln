@@ -3,11 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VinylSamling", "VinylSamling\VinylSamling.csproj", "{8D6BCCE2-8EAA-4D39-AAC7-C557A283DE97}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VinylCollection", "VinylSamling\VinylCollection.csproj", "{8D6BCCE2-8EAA-4D39-AAC7-C557A283DE97}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleshipGame", "BattleshipGame\BattleshipGame.csproj", "{8CDDB1C0-2306-451C-B449-C85A0D1A410C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleshipTester", "BattleshipTester\BattleshipTester.csproj", "{AF129287-EF31-4FF5-8F72-A38D7A8DC659}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +21,6 @@ Global
 		{8CDDB1C0-2306-451C-B449-C85A0D1A410C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8CDDB1C0-2306-451C-B449-C85A0D1A410C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8CDDB1C0-2306-451C-B449-C85A0D1A410C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AF129287-EF31-4FF5-8F72-A38D7A8DC659}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AF129287-EF31-4FF5-8F72-A38D7A8DC659}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AF129287-EF31-4FF5-8F72-A38D7A8DC659}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AF129287-EF31-4FF5-8F72-A38D7A8DC659}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

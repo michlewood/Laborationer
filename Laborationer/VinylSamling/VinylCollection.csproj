@@ -7,8 +7,8 @@
     <ProjectGuid>{8D6BCCE2-8EAA-4D39-AAC7-C557A283DE97}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>VinylSamling</RootNamespace>
-    <AssemblyName>VinylSamling</AssemblyName>
+    <RootNamespace>VinylCollection</RootNamespace>
+    <AssemblyName>VinylCollection</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,7 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="VinylSamlingMain.cs" />
+    <Compile Include="Vinyl.cs" />
+    <Compile Include="VinylCollectionMain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -18,7 +18,7 @@ namespace BattleshipGame
         MapGUI mapGui = new MapGUI();
         Map map = new Map();
 
-        public BattleshipMain()
+        BattleshipMain()
         {
             PlaceShips();
             GameLoop();
