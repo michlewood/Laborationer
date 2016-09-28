@@ -9,6 +9,8 @@ namespace BattleshipTester
 {
     class Program
     {
+        BattleshipMain bm = new BattleshipMain();
+        MapGUI gui = new MapGUI();
         Program()
         {
             
@@ -24,13 +26,15 @@ namespace BattleshipTester
         private void TestPlaceraUtSkepp()
         {
             //placera ett skepp på plats x3 y5
-            //BattleshipMain.PlaceShip(3,5);
+            bm.PlaceShip(3,5);
+
+            TestGUI();
         }
 
         private void TestGUI()
         {
             //Printa ut en 10x10 spelplan
-            GUI.GameField();
+            gui.GameField();
         }
     }
 }
