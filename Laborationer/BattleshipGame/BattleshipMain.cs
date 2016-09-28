@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VinylSamling
+namespace BattleshipGame
 {
-    class Program
+    class BattleshipMain
     {
         static void Main(string[] args)
         {
