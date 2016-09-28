@@ -43,34 +43,47 @@ namespace BattleshipGame
             }
         }
 
-        private bool CheckIfPlayerWon()
+        public void PlaceShips()
         {
-            if (playerOnesTurn)
-            {
-                for (int i = 0; i < Map.PlayerTwoMapPositions.Length; i++)
-                {
-                    if (Map.PlayerTwoMapPositions[i] == 1)
-                    {
-                        return false;
-                    }
-                }
-                Console.WriteLine("Player One Wins!");
-            }
-            else
-            {
-                for (int i = 0; i < Map.PlayerOneMapPositions.Length; i++)
-                {
-                    if (Map.PlayerOneMapPositions[i] == 1)
-                    {
-                        return false;
-                    }
-                }
-                Console.WriteLine("Player Two Wins!");
-                
-            }
-            Console.ReadLine();
+            string[] ships = { "smallship", "longship", "squareship" };
+            int xCoordinat;
+            int yCoordinat;
+            int typeOfShip = 0;
 
-            return true;
+            for (int i = 0; i < 6; i++)
+            {
+                Console.Clear();
+                mapGui.SetUpField();
+                bool correctFormat = false;
+                while (!correctFormat)
+                {
+                    Console.WriteLine("Choose position of {0}(format: x0, y0): ", ships[typeOfShip]);
+                    string input = Console.ReadLine();
+                    if (input.Length == 6 && input[0] == 'x' && input[4] == 'y' && int.TryParse("" + input[1], out xCoordinat)
+                    && int.TryParse("" + input[5], out yCoordinat))
+                    {
+                        if (map.AddShip(xCoordinat, yCoordinat, typeOfShip))
+                        {
+                            correctFormat = true;
+                            if (!playerOnesTurn)
+                            {
+                                typeOfShip++;
+
+                            }
+                            playerOnesTurn = !playerOnesTurn;
+                            Console.Clear();
+                            if (!PlayerOnesTurn) Console.WriteLine("Player twos turn! (Please switch player before continuing)");
+                            else Console.WriteLine("Player ones turn! (Please switch player before continuing)");
+
+                            Console.ReadLine();
+                        }
+
+
+                    }
+                    else Console.WriteLine("\nIncorrect format!");
+
+                }
+            }
         }
 
         private void MakeGuess()
@@ -101,48 +114,35 @@ namespace BattleshipGame
             
         }
 
-        public void PlaceShips()
+        private bool CheckIfPlayerWon()
         {
-            string[] ships = { "smallship", "longship", "squareship" };
-            int xCoordinat;
-            int yCoordinat;
-            int typeOfShip = 0;
-
-            for (int i = 0; i < 6; i++)
+            if (playerOnesTurn)
             {
-                Console.Clear();
-                mapGui.SetUpField();
-                bool correctFormat = false;
-                while (!correctFormat) 
+                for (int i = 0; i < Map.PlayerTwoMapPositions.Length; i++)
                 {
-                    Console.WriteLine("Choose position of {0}(format: x0, y0): ", ships[typeOfShip]);
-                    string input = Console.ReadLine();
-                    if (input.Length == 6 && input[0] == 'x' && input[4] == 'y' && int.TryParse("" + input[1], out xCoordinat)
-                    && int.TryParse("" + input[5], out yCoordinat))
+                    if (Map.PlayerTwoMapPositions[i] == 1)
                     {
-                        if (map.AddShip(xCoordinat, yCoordinat, typeOfShip))
-                        {
-                            correctFormat = true;
-                            if (!playerOnesTurn)
-                            {
-                                typeOfShip++;
-
-                            }
-                            playerOnesTurn = !playerOnesTurn;
-                            Console.Clear();
-                            if (!PlayerOnesTurn) Console.WriteLine("Player twos turn! (Please switch player before continuing)");
-                            else Console.WriteLine("Player ones turn! (Please switch player before continuing)");
-
-                            Console.ReadLine();
-                        }
-
-                        
+                        return false;
                     }
-                    else Console.WriteLine("\nIncorrect format!");
-                    
-                }   
+                }
+                Console.WriteLine("Player One Wins!");
             }
-        }
+            else
+            {
+                for (int i = 0; i < Map.PlayerOneMapPositions.Length; i++)
+                {
+                    if (Map.PlayerOneMapPositions[i] == 1)
+                    {
+                        return false;
+                    }
+                }
+                Console.WriteLine("Player Two Wins!");
+
+            }
+            Console.ReadLine();
+
+            return true;
+        } 
 
         static void Main(string[] args)
         {
