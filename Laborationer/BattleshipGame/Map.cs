@@ -31,9 +31,7 @@ namespace BattleshipGame
             else return addSquareShip(xCoordinat, yCoordinat);
             
         }
-
-
-
+        
         private bool addSquareShip(int xCoordinat, int yCoordinat)
         {
             if (yCoordinat < 9 && xCoordinat < 9)

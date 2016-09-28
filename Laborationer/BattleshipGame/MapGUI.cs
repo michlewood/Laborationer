@@ -5,8 +5,6 @@ namespace BattleshipGame
     public class MapGUI
     {
 
-        
-
         string[] tileType = { "#", "s", "¤", "X" };
         string[] tileTypeSetUp = { "#", "s"};
 
@@ -14,8 +12,8 @@ namespace BattleshipGame
         {
             int yValue = 0;
             Console.WriteLine("  0 1 2 3 4 5 6 7 8 9 x");
-            //Console.WriteLine(" ______________________");
             Console.Write(yValue + " ");
+
             for (int i = 0; i < 100; i++)
             {
                 
@@ -41,8 +39,8 @@ namespace BattleshipGame
         {
             int yValue = 0;
             Console.WriteLine("  0 1 2 3 4 5 6 7 8 9 x");
-            //Console.WriteLine(" ______________________");
             Console.Write(yValue + " ");
+
             for (int i = 0; i < 100; i++)
             {
 

@@ -14,8 +14,7 @@ namespace BattleshipGame
             get { return playerOnesTurn; }
             set { playerOnesTurn = value; }
         }
-
-
+        
         MapGUI mapGui = new MapGUI();
         Map map = new Map();
 
