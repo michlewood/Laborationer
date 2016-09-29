@@ -5,7 +5,7 @@ namespace BattleshipGame
     public class MapGUI
     {
 
-        string[] tileType = { "#", "s", "¤", "X" };
+        string[] tileType = { "#", "#", "¤", "X" };
         string[] tileTypeSetUp = { "#", "s"};
 
         internal void SetUpField()
