@@ -30,6 +30,8 @@ namespace BattleshipGame
             while (true)
             {
                 Console.Clear();
+                if (PlayerOnesTurn) Console.WriteLine("Player one ");
+                else Console.WriteLine("Player two ");
                 mapGui.GameField();
 
                 MakeGuess();
@@ -53,11 +55,14 @@ namespace BattleshipGame
             for (int i = 0; i < 6; i++)
             {
                 Console.Clear();
+                if (PlayerOnesTurn) Console.WriteLine("Player one ");
+                else Console.WriteLine("Player two ");
                 mapGui.SetUpField();
                 bool correctFormat = false;
                 while (!correctFormat)
                 {
-                    Console.WriteLine("Choose position of {0}(format: x0, y0): ", ships[typeOfShip]);
+                    
+                    Console.WriteLine("choose position of {0}(format: x0, y0): ", ships[typeOfShip]);
                     string input = Console.ReadLine();
                     if (input.Length == 6 && input[0] == 'x' && input[4] == 'y' && int.TryParse("" + input[1], out xCoordinat)
                     && int.TryParse("" + input[5], out yCoordinat))
