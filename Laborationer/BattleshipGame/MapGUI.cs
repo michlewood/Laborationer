@@ -17,7 +17,7 @@ namespace BattleshipGame
             for (int i = 0; i < 100; i++)
             {
 
-                if (!BattleshipMain.PlayerOnesTurn) Console.Write(tileType[Map.PlayerTwoMapPositions[i]] + " ");
+                if (!BattleshipMain.PlayerOnesTurn) Console.Write(tileTypeSetUp[Map.PlayerTwoMapPositions[i]] + " ");
                 else Console.Write(tileTypeSetUp[Map.PlayerOneMapPositions[i]] + " ");
 
                 if ((i + 1) % 10 == 0 && i != 99)
