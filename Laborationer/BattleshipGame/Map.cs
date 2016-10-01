@@ -24,7 +24,7 @@ namespace BattleshipGame
 
         public bool AddShip(int xCoordinat, int yCoordinat, int typeOfShip)
         {
-            if (typeOfShip == 0) return addsmallShip(xCoordinat, yCoordinat);
+            if (typeOfShip == 0) return addSmallShip(xCoordinat, yCoordinat);
 
             else if (typeOfShip == 1) return addLongShip(xCoordinat, yCoordinat);
 
@@ -32,7 +32,7 @@ namespace BattleshipGame
             
         }
 
-        private bool addsmallShip(int xCoordinat, int yCoordinat)
+        private bool addSmallShip(int xCoordinat, int yCoordinat)
         {
             if (yCoordinat < 8)
             {
@@ -207,7 +207,7 @@ namespace BattleshipGame
             else
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("invalid target");
+                Console.WriteLine("Already shot that location! Try again!");
                 Console.ForegroundColor = ConsoleColor.Gray;
                 return false;
             }

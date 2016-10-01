@@ -23,16 +23,13 @@ namespace BattleshipGame
                 if ((i + 1) % 10 == 0 && i != 99)
                 {
                     Console.WriteLine();
-                    yValue += 1;
+                    yValue++;
                     Console.Write(yValue + " ");
                 }
-                if (i == 99)
-                {
-                    Console.WriteLine();
-                    Console.WriteLine("y");
-                }
-
             }
+
+            Console.WriteLine();
+            Console.WriteLine("y");
         }
 
         public void GameField()
@@ -53,13 +50,11 @@ namespace BattleshipGame
                     yValue += 1;
                     Console.Write(yValue + " ");
                 }
-                if (i == 99)
-                {
-                    Console.WriteLine();
-                    Console.WriteLine("y");
-                }   
                 
             }
+
+            Console.WriteLine();
+            Console.WriteLine("y");
         }
         
     }

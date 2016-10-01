@@ -9,7 +9,7 @@ namespace BattleshipGame
     public class BattleshipMain
     {
         static bool playerOnesTurn = true;
-        public static  bool PlayerOnesTurn
+        public static bool PlayerOnesTurn
         {
             get { return playerOnesTurn; }
             set { playerOnesTurn = value; }
@@ -22,7 +22,6 @@ namespace BattleshipGame
         {
             PlaceShips();
             GameLoop();
-            
         }
 
         private void GameLoop()
@@ -32,10 +31,15 @@ namespace BattleshipGame
                 Console.Clear();
                 if (PlayerOnesTurn) Console.WriteLine("Player one ");
                 else Console.WriteLine("Player two ");
+
                 mapGui.GameField();
 
                 MakeGuess();
+
+                mapGui.GameField();
+
                 if (CheckIfPlayerWon()) return;
+                
                 playerOnesTurn = !playerOnesTurn;
 
                 if (!PlayerOnesTurn) Console.WriteLine("Player twos turn! (Please switch player before continuing)");
@@ -52,7 +56,7 @@ namespace BattleshipGame
             int yCoordinat;
             int typeOfShip = 0;
 
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < 2; i++)
             {
                 Console.Clear();
                 if (PlayerOnesTurn) Console.WriteLine("Player one ");
@@ -107,9 +111,7 @@ namespace BattleshipGame
                 {
 
                     Console.Clear();
-                    if (map.HitShip(xCoordinat, yCoordinat)) correctFormat = true;
-
-                    mapGui.GameField();
+                    correctFormat = map.HitShip(xCoordinat, yCoordinat);
                     
                 }
                 else Console.WriteLine("\nIncorrect format!");
