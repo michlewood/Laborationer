@@ -75,9 +75,11 @@ namespace VinylCollection
                 invalidChoice = int.TryParse(Console.ReadLine(), out indexToEdit);
             } while (!invalidChoice);
 
-            if (indexToEdit <= vinylCollection.Count)
+            indexToEdit--;
+
+            if (indexToEdit < vinylCollection.Count && indexToEdit >= 0)
             {
-                vinylCollection[indexToEdit - 1].Edit(); ;
+                vinylCollection[indexToEdit].Edit(); ;
                 UpdateFile();
                 Console.WriteLine("Album edited");
             }
@@ -130,9 +132,11 @@ namespace VinylCollection
                 invalidChoice = int.TryParse(Console.ReadLine(), out indexToRemove);
             } while (!invalidChoice);
 
-            if (indexToRemove <= vinylCollection.Count)
+            indexToRemove--;
+
+            if (indexToRemove < vinylCollection.Count && indexToRemove >= 0)
             {
-                vinylCollection.RemoveAt(indexToRemove - 1);
+                vinylCollection.RemoveAt(indexToRemove);
                 UpdateFile();
                 Console.WriteLine("Removed album");
             }
@@ -158,11 +162,11 @@ namespace VinylCollection
         private void UpdateFile()
         {
             string[] toFile = new string[vinylCollection.Count*3];
-            for (int i = 0; i < vinylCollection.Count; i ++)
+            for (int i = 0; i < vinylCollection.Count; i+=3)
             {
-                toFile[i*3] = vinylCollection[i].NameOfAlbum;
-                toFile[i*3 + 1] = vinylCollection[i].NameOfArtist;
-                toFile[i*3 + 2] = "" + vinylCollection[i].ReleaseYear;
+                toFile[i] = vinylCollection[i].NameOfAlbum;
+                toFile[i + 1] = vinylCollection[i].NameOfArtist;
+                toFile[i + 2] = "" + vinylCollection[i].ReleaseYear;
             }
 
             File.WriteAllLines(FindFileLocation(), toFile);

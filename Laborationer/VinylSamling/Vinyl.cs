@@ -44,7 +44,6 @@ namespace VinylCollection
              
             ReleaseYear = newReleaseYear;
 
-
         }
     }
 }
