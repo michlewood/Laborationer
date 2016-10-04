@@ -24,31 +24,6 @@ namespace BattleshipGame
             GameLoop();
         }
 
-        private void GameLoop()
-        {
-            while (true)
-            {
-                Console.Clear();
-                if (PlayerOnesTurn) Console.WriteLine("Player one ");
-                else Console.WriteLine("Player two ");
-
-                mapGui.GameField();
-
-                MakeGuess();
-
-                mapGui.GameField();
-
-                if (CheckIfPlayerWon()) return;
-                
-                playerOnesTurn = !playerOnesTurn;
-
-                if (!PlayerOnesTurn) Console.WriteLine("Player twos turn! (Please switch player before continuing)");
-                else Console.WriteLine("Player ones turn! (Please switch player before continuing)");
-                
-                Console.ReadLine();
-            }
-        }
-
         public void PlaceShips()
         {
             string[] ships = { "smallship", "longship", "squareship" };
@@ -56,7 +31,7 @@ namespace BattleshipGame
             int yCoordinat;
             int typeOfShip = 0;
 
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < 6; i++)
             {
                 Console.Clear();
                 if (PlayerOnesTurn) Console.WriteLine("Player one ");
@@ -65,7 +40,7 @@ namespace BattleshipGame
                 bool correctFormat = false;
                 while (!correctFormat)
                 {
-                    
+
                     Console.WriteLine("choose position of {0}(format: x0, y0): ", ships[typeOfShip]);
                     string input = Console.ReadLine();
                     if (input.Length == 6 && input[0] == 'x' && input[4] == 'y' && int.TryParse("" + input[1], out xCoordinat)
@@ -95,6 +70,31 @@ namespace BattleshipGame
             }
         }
 
+        private void GameLoop()
+        {
+            while (true)
+            {
+                Console.Clear();
+                if (PlayerOnesTurn) Console.WriteLine("Player one ");
+                else Console.WriteLine("Player two ");
+
+                mapGui.GameField();
+
+                MakeGuess();
+
+                mapGui.GameField();
+
+                if (CheckIfPlayerWon()) return;
+                
+                playerOnesTurn = !playerOnesTurn;
+
+                if (!PlayerOnesTurn) Console.WriteLine("Player twos turn! (Please switch player before continuing)");
+                else Console.WriteLine("Player ones turn! (Please switch player before continuing)");
+                
+                Console.ReadLine();
+            }
+        }
+        
         private void MakeGuess()
         {
             int xCoordinat;

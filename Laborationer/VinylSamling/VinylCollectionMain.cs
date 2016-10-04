@@ -66,14 +66,14 @@ namespace VinylCollection
         private void EditAlbum()
         {
             ListVinyls();
-            bool invalidChoice = true;
+            bool validChoice = true;
             int indexToEdit = 0;
             Console.Write("Enter the number of the album to edit: ");
             do
             {
-                if (!invalidChoice) Console.WriteLine("Please enter a number");
-                invalidChoice = int.TryParse(Console.ReadLine(), out indexToEdit);
-            } while (!invalidChoice);
+                if (!validChoice) Console.WriteLine("Please enter a number");
+                validChoice = int.TryParse(Console.ReadLine(), out indexToEdit);
+            } while (!validChoice);
 
             indexToEdit--;
 
@@ -123,14 +123,14 @@ namespace VinylCollection
         {
             
             ListVinyls();
-            bool invalidChoice = true;
+            bool validChoice = true;
             int indexToRemove = 0;
             Console.Write("Enter the number of the album to remove: ");
             do
             {
-                if (!invalidChoice) Console.WriteLine("Please enter a number");
-                invalidChoice = int.TryParse(Console.ReadLine(), out indexToRemove);
-            } while (!invalidChoice);
+                if (!validChoice) Console.WriteLine("Please enter a number");
+                validChoice = int.TryParse(Console.ReadLine(), out indexToRemove);
+            } while (!validChoice);
 
             indexToRemove--;
 
