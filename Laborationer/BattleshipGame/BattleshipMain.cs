@@ -10,7 +10,6 @@ namespace BattleshipGame
     {
         public static bool PlayerOnesTurn { get; set; }
         
-
         MapGUI mapGui = new MapGUI();
         Map map = new Map();
 
