@@ -31,7 +31,7 @@ namespace BattleshipGame
             int yCoordinat;
             int typeOfShip = 0;
 
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < 2; i++)
             {
                 Console.Clear();
                 if (PlayerOnesTurn) Console.WriteLine("Player one ");
@@ -82,7 +82,7 @@ namespace BattleshipGame
 
                 MakeGuess();
 
-                mapGui.GameField();
+                
 
                 if (CheckIfPlayerWon()) return;
                 
@@ -105,17 +105,19 @@ namespace BattleshipGame
             {
                 Console.WriteLine("Choose a target(format: x0, y0): ");
                 string input = Console.ReadLine();
+                Console.Clear();
 
                 if (input.Length == 6 && input[0] == 'x' && input[4] == 'y' && int.TryParse("" + input[1], out xCoordinat)
                 && int.TryParse("" + input[5], out yCoordinat))
                 {
 
-                    Console.Clear();
+                    
                     correctFormat = map.HitShip(xCoordinat, yCoordinat);
                     
                 }
-                else Console.WriteLine("\nIncorrect format!");
+                else Console.WriteLine("Incorrect format!");
 
+                mapGui.GameField();
             }
 
             

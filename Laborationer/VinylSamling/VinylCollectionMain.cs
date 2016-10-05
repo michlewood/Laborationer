@@ -17,7 +17,7 @@ namespace VinylCollection
             Menu();
         }
 
-        private void Menu()
+        private void Menu() 
         {
             Console.Clear();
             while (true)
@@ -162,11 +162,11 @@ namespace VinylCollection
         private void UpdateFile()
         {
             string[] toFile = new string[vinylCollection.Count*3];
-            for (int i = 0; i < vinylCollection.Count; i+=3)
+            for (int i = 0; i < vinylCollection.Count; i++)
             {
-                toFile[i] = vinylCollection[i].NameOfAlbum;
-                toFile[i + 1] = vinylCollection[i].NameOfArtist;
-                toFile[i + 2] = "" + vinylCollection[i].ReleaseYear;
+                toFile[i*3] = vinylCollection[i].NameOfAlbum;
+                toFile[i * 3 + 1] = vinylCollection[i].NameOfArtist;
+                toFile[i * 3 + 2] = "" + vinylCollection[i].ReleaseYear;
             }
 
             File.WriteAllLines(FindFileLocation(), toFile);
