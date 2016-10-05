@@ -8,18 +8,16 @@ namespace BattleshipGame
 {
     public class BattleshipMain
     {
-        static bool playerOnesTurn = true;
-        public static bool PlayerOnesTurn
-        {
-            get { return playerOnesTurn; }
-            set { playerOnesTurn = value; }
-        }
         
+        public static bool PlayerOnesTurn { get; set; }
+        
+
         MapGUI mapGui = new MapGUI();
         Map map = new Map();
 
         BattleshipMain()
         {
+            PlayerOnesTurn = true;
             PlaceShips();
             GameLoop();
         }
@@ -49,12 +47,12 @@ namespace BattleshipGame
                         if (map.AddShip(xCoordinat, yCoordinat, typeOfShip))
                         {
                             correctFormat = true;
-                            if (!playerOnesTurn)
+                            if (!PlayerOnesTurn)
                             {
                                 typeOfShip++;
 
                             }
-                            playerOnesTurn = !playerOnesTurn;
+                            PlayerOnesTurn = !PlayerOnesTurn;
                             Console.Clear();
                             if (!PlayerOnesTurn) Console.WriteLine("Player twos turn! (Please switch player before continuing)");
                             else Console.WriteLine("Player ones turn! (Please switch player before continuing)");
@@ -86,7 +84,7 @@ namespace BattleshipGame
 
                 if (CheckIfPlayerWon()) return;
                 
-                playerOnesTurn = !playerOnesTurn;
+                PlayerOnesTurn = !PlayerOnesTurn;
 
                 if (!PlayerOnesTurn) Console.WriteLine("Player twos turn! (Please switch player before continuing)");
                 else Console.WriteLine("Player ones turn! (Please switch player before continuing)");
@@ -125,7 +123,7 @@ namespace BattleshipGame
 
         private bool CheckIfPlayerWon()
         {
-            if (playerOnesTurn)
+            if (PlayerOnesTurn)
             {
                 for (int i = 0; i < Map.PlayerTwoMapPositions.Length; i++)
                 {
