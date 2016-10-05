@@ -42,10 +42,10 @@ namespace VinylCollection
                         EditAlbum();
                         break;
                     case 3:
-                        AddVinyl();
+                        AddAlbum();
                         break;
                     case 4:
-                        RemoveVinyl();
+                        RemoveAlbum();
                         break;
                         
                     default:
@@ -80,7 +80,7 @@ namespace VinylCollection
             Console.Clear();
         }    
 
-        private void AddVinyl()
+        private void AddAlbum()
         {
             Console.Clear();
             Console.Write("Please enter name of album: ");
@@ -109,7 +109,7 @@ namespace VinylCollection
 
         }
 
-        private void RemoveVinyl()
+        private void RemoveAlbum()
         {
             ListVinyls();
             Console.Write("Enter the number of the album to remove: ");
