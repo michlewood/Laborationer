@@ -10,7 +10,6 @@ namespace VinylCollection
 
         public Vinyl(string nameOfAlbum, string nameOfArtist, int releaseYear)
         {
-            //test
             NameOfAlbum = nameOfAlbum;
             NameOfArtist = nameOfArtist;
             ReleaseYear = releaseYear;
