@@ -78,7 +78,6 @@ namespace VinylCollection
 
             Console.ReadLine();
             Console.Clear();
-
         }    
 
         private void AddVinyl()
@@ -151,10 +150,7 @@ namespace VinylCollection
                 validChoice = int.TryParse(Console.ReadLine(), out indexToUse);
             } while (!validChoice);
 
-            indexToUse--;
-
-            if (indexToUse < vinylCollection.Count && indexToUse >= 0) return indexToUse;
-
+            if (indexToUse <= vinylCollection.Count && indexToUse > 0) return --indexToUse;
             else return -1;
         }
 
