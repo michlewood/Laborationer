@@ -66,19 +66,10 @@ namespace VinylCollection
         private void EditAlbum()
         {
             ListVinyls();
-            bool validChoice = true;
-            int indexToEdit = 0;
             Console.Write("Enter the number of the album to edit: ");
-            do
-            {
-                if (!validChoice) Console.WriteLine("Please enter a number");
-                validChoice = int.TryParse(Console.ReadLine(), out indexToEdit);
-            } while (!validChoice);
-
-            indexToEdit--;
-
-            if (indexToEdit < vinylCollection.Count && indexToEdit >= 0)
-            {
+            int indexToEdit = FindIndex();
+            if(indexToEdit != -1)
+            { 
                 vinylCollection[indexToEdit].Edit(); ;
                 UpdateFile();
                 Console.WriteLine("Album edited");
@@ -88,7 +79,7 @@ namespace VinylCollection
             Console.ReadLine();
             Console.Clear();
 
-        }
+        }    
 
         private void AddVinyl()
         {
@@ -121,24 +112,14 @@ namespace VinylCollection
 
         private void RemoveVinyl()
         {
-            
             ListVinyls();
-            bool validChoice = true;
-            int indexToRemove = 0;
             Console.Write("Enter the number of the album to remove: ");
-            do
-            {
-                if (!validChoice) Console.WriteLine("Please enter a number");
-                validChoice = int.TryParse(Console.ReadLine(), out indexToRemove);
-            } while (!validChoice);
-
-            indexToRemove--;
-
-            if (indexToRemove < vinylCollection.Count && indexToRemove >= 0)
+            int indexToRemove = FindIndex();
+            if (indexToRemove != -1)
             {
                 vinylCollection.RemoveAt(indexToRemove);
                 UpdateFile();
-                Console.WriteLine("Removed album");
+                Console.WriteLine("Album removed");
             }
             else Console.WriteLine("No file has been removed");
 
@@ -157,6 +138,24 @@ namespace VinylCollection
             }
 
             
+        }
+
+        private int FindIndex()
+        {
+            bool validChoice = true;
+            int indexToUse = 0;
+
+            do
+            {
+                if (!validChoice) Console.WriteLine("Please enter a number");
+                validChoice = int.TryParse(Console.ReadLine(), out indexToUse);
+            } while (!validChoice);
+
+            indexToUse--;
+
+            if (indexToUse < vinylCollection.Count && indexToUse >= 0) return indexToUse;
+
+            else return -1;
         }
 
         private void UpdateFile()
