@@ -4,9 +4,9 @@ namespace VinylCollection
 {
     internal class Vinyl
     {
-        public string NameOfAlbum { get; set; }
-        public string NameOfArtist { get; set; }
-        public int ReleaseYear { get; set; }
+        public string NameOfAlbum { get; private set; }
+        public string NameOfArtist { get; private set; }
+        public int ReleaseYear { get; private set; }
 
         public Vinyl(string nameOfAlbum, string nameOfArtist, int releaseYear)
         {
