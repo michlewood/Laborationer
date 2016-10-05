@@ -8,7 +8,6 @@ namespace BattleshipGame
 {
     public class BattleshipMain
     {
-        
         public static bool PlayerOnesTurn { get; set; }
         
 
@@ -153,6 +152,7 @@ namespace BattleshipGame
 
         static void Main(string[] args)
         {
+            Console.OutputEncoding = Encoding.UTF8;
             new BattleshipMain();
         }
     }
